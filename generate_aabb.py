@@ -4,9 +4,16 @@ from concurrent.futures import ProcessPoolExecutor
 
 def process_scene(scene, project_dir):
     path = os.path.join(project_dir, scene)
-    print(f'Processing project directory: {path}')
-    subprocess.run(['python', 'dilation_single_scene.py', '--project_dir', path])
-    subprocess.run(['python', 'filter_single_scene.py', '--project_dir', path])
+    if os.path.isdir(path):
+        print(f'Processing scene: {scene}')
+        try:
+            subprocess.run(['python', 'opening_op_single_scene.py', '--project_dir', path], check=True)
+            subprocess.run(['python', 'filter_single_scene.py', '--project_dir', path], check=True)
+            print(f'Processing complete for scene: {scene}')
+        except subprocess.CalledProcessError as e:
+            print(f'Error processing scene {scene}: {e}')
+    else:
+        print(f'Error: {path} is not a valid directory.')
 
 def main():
     project_dir = '/mnt/data/kennyyao/benchmark/'
