@@ -42,6 +42,37 @@ The main script (`generate_aabb.py`) orchestrates the processing of multiple sce
 
    This will initiate parallel processing of all scene directories found in `project_dir`.
 
+## Directory Structure
+The directory structure for each scene should look like this:
+
+
+...
+scene1/
+├── images/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+├── masks/
+│   ├── mask1.png
+│   ├── mask2.png
+│   └── ...
+├── space.json
+└── point_cloud.ply
+
+scene2/
+├── images/
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   └── ...
+├── masks/
+│   ├── mask1.png
+│   ├── mask2.png
+│   └── ...
+├── space.json
+└── point_cloud.ply
+
+...
+
 ## Scripts
 
 ### `generate_aabb.py`
