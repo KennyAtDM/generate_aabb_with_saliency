@@ -7,7 +7,7 @@ This repository contains scripts for parallel processing of scenes in a director
 The main script (`generate_aabb.py`) orchestrates the processing of multiple scenes concurrently. Each scene directory undergoes two processing steps:
 
 1. **Saliency detection**: Utilizes the BiRefNet-massive-epoch_240 model for high-resolution dichotomous image segmentation.
-GitHub Repository: BiRefNet GitHub Repository [https://github.com/ZhengPeng7/BiRefNet]
+[BiRefNet GitHub Repository](https://github.com/ZhengPeng7/BiRefNet)
 2. **Opening**: Opening binary masks in each scene using `opening_op_single_scene.py`.
 3. **Filtering**: Applies additional filtering on processed scenes using `filter_single_scene.py`.
 
